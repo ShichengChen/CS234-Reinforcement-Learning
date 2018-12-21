@@ -101,8 +101,6 @@ def policy_improvement(P, nS, nA, value_from_policy, policy, gamma=0.9):
     ind = (q == np.max(q,axis=1,keepdims=True))
     addnoise = np.arange(nS*nA).reshape(q.shape)
     np.random.shuffle(addnoise)
-    #print('add noise begin')
-    #print(np.argmax(q, axis=1))
     q[ind] += addnoise[ind]
     policy = np.argmax(q, axis=1)
     # if there is no noise, cannot find optimal result when there is Stochastic-4x4-FrozenLake-v0
